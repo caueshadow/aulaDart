@@ -1,0 +1,33 @@
+import 'dart:math';
+
+// Exercicio 1
+int idade({int ano = 0}) {
+  return 2026 - ano;
+}
+
+//Exercicio 2
+double area(double raio) {
+  return pi * raio * raio;
+}
+
+//Exercicio 3
+double media(List<double> notas) {
+  return notas.reduce((a, b) => a + b) / notas.length;
+}
+
+void main() {
+  //Exercicio 1
+  int valor = idade(ano: 1977);
+  print(valor);
+  
+  //Exercicio 2
+  var areaCirculo = area(5);
+  print(areaCirculo);
+  
+  //Exercicio 3
+  var notas = [4.5, 9.2, 7.8];
+  var notaFinal = media(notas);
+
+  print(notaFinal);
+}
+
