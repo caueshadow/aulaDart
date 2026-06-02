@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MainApp());
+}
+
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
+  // Função que calcula a média
+  double media(List<double> notas) {
+    if (notas.isEmpty) return 0.0;
+
+    double soma = 0.0;
+    for (var nota in notas) {
+      soma += nota;
+    }
+
+    return soma / notas.length;
+  }
+
+  // Função que retorna a maior nota
+  double maiorNota(List<double> notas) {
+    if (notas.isEmpty) return 0.0;
+    return notas.reduce((a, b) => a > b ? a : b);
+  }
+
+  // Função que retorna a menor nota
+  double menorNota(List<double> notas) {
+    if (notas.isEmpty) return 0.0;
+    return notas.reduce((a, b) => a < b ? a : b);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var notas = [5.0, 6.5, 8.2];
+
+    var resultadoMedia = media(notas);
+    var maior = maiorNota(notas);
+    var menor = menorNota(notas);
+
+    var msg =
+        "Média: ${resultadoMedia.toStringAsFixed(2)}\n"
+        "Maior nota: ${maior.toStringAsFixed(1)}\n"
+        "Menor nota: ${menor.toStringAsFixed(1)}";
+
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            msg,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
+  }
+}
